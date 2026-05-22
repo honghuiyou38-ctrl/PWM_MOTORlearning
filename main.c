@@ -16,7 +16,24 @@ void main()
 	
   while(1)
   {		
-
+		if(KEY1==0)
+		{
+			Delay_xms(20);
+			while(KEY1==0);
+			Delay_xms(20);
+			Level++;
+			if(Level>10)
+			Level=0;
+		}
+		
+		if(KEY2==0)
+		{
+			Delay_xms(20);
+			while(KEY2==0);
+			Delay_xms(20);
+			if(Level>0)
+			Level--;
+		}
 	}
  
 }
