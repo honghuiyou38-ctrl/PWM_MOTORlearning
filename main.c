@@ -4,6 +4,8 @@
 #include <uart.h>
 #include <main.h>
 #include "Timer.h"
+#include <IIC.h>
+#include "oled.h"
 
 uchar recv;
 uchar TIM_count_0=0;
@@ -12,6 +14,10 @@ uchar keynum;
 
 void main()
 {
+	OLED_Init();
+	OLED_Clear();
+	OLED_ShowString(26,0,"MotorB Test",16);
+	OLED_ShowString(0,2,"Level:",16);
 	Timer0_INTrupt();
 	EA=1;
 	
@@ -31,6 +37,7 @@ void main()
 			if(Level>0)
 			Level--;
 		}
+		OLED_ShowNum(48,2,Level,2,16);
 	}
  
 }
