@@ -7,7 +7,8 @@
 
 uchar recv;
 uchar TIM_count_0=0;
-uchar Level=5;
+uchar Level=0;
+uchar keynum;
 
 void main()
 {
@@ -16,21 +17,17 @@ void main()
 	
   while(1)
   {		
-		if(KEY1==0)
+		keynum=key_scan();
+		
+		if(keynum==1)
 		{
-			Delay_xms(20);
-			while(KEY1==0);
-			Delay_xms(20);
 			Level++;
 			if(Level>10)
 			Level=0;
 		}
 		
-		if(KEY2==0)
+		if(keynum==2)
 		{
-			Delay_xms(20);
-			while(KEY2==0);
-			Delay_xms(20);
 			if(Level>0)
 			Level--;
 		}
